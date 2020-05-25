@@ -67,7 +67,7 @@ class User extends My_Controller {
 		if (count($result) > 0) {
 			$this->set_session($result[0]);
 			
-			redirect(base_url().'pasien');
+			redirect(base_url().'dashboard');
 		} else {
 			$this->set_alert('danger', 'Username/Password salah. Periksa kembali ya.');
 			

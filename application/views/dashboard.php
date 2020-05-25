@@ -15,7 +15,7 @@
           <div class="collapse navbar-collapse justify-content-end">
             <span class="bmd-form-group">
               <div class="input-group no-border">
-                <label style="text-align: right; margin-top: 25px; margin-right: 10px;"> <i> Selamat Datang </i>,<br><strong> <h4> <?= $user_full_name ?> </h4> </strong></label>
+                <label style="text-align: right; margin-top: 25px; margin-right: 10px;"> <i> Selamat Datang </i><br><strong> <h4> <?= $user_full_name ?> </h4> </strong></label>
               </div>
             </span>
           </div>
