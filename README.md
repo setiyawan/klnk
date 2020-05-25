@@ -1,4 +1,4 @@
-# Nextgen Academy
+# eKlinik
 
 # Env Setting
 - Copy *.env.example

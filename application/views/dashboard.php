@@ -11,6 +11,15 @@
           <div class="navbar-wrapper">
             <h3>Dashboard</h3>
           </div>
+
+          <div class="collapse navbar-collapse justify-content-end">
+            <span class="bmd-form-group">
+              <div class="input-group no-border">
+                <label style="text-align: right; margin-top: 25px; margin-right: 10px;"> <i> Selamat Datang </i>,<br><strong> <h4> <?= $user_full_name ?> </h4> </strong></label>
+              </div>
+            </span>
+          </div>
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -62,7 +71,7 @@
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">filter_7</i>
+                    <i class="material-icons">local_hospital</i>
                   </div>
                   <p class="card-category">Pasien Terlayani dalam 1 Minggu</p>
                   <h3 class="card-title"><strong><?= $medical_record_count_7_days ?></strong></h3>

@@ -24,7 +24,7 @@
       </li>
       <li class="nav-item <?= $active_left_navbar == 'medicine' ? 'active' : ''?>">
         <a class="nav-link" href="<?php echo base_url() ?>obat">
-          <i class="material-icons">library_books</i>
+          <i class="material-icons">local_pharmacy</i>
           <p>Daftar Obat</p>
         </a>
       </li>

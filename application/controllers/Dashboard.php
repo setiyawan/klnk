@@ -34,7 +34,9 @@ class Dashboard extends My_Controller {
     public function index() {
     	$data['active_menu']['active_left_navbar'] = 'dashboard';
     	
-    	$filter['x_days'] = $this->TimeConstant->get_date_min_x_days(2);
+    	$filter['x_days'] = $this->TimeConstant->get_date_min_x_days(7);
+
+    	$data['user_full_name'] = $this->get_session_by_id('full_name');
     	$data['patient_count'] = $this->PatientModel->get_patient_count();
     	$data['medical_record_count'] = $this->MedicalRecordModel->get_medical_record_count();
     	$data['medical_record_count_7_days'] = $this->MedicalRecordModel->get_medical_record_count($filter);
