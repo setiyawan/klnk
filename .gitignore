@@ -1,0 +1,6 @@
+.env.development
+.env.testing
+.env.production
+
+asset/img/blog/
+asset/img/user/
