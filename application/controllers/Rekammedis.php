@@ -128,7 +128,9 @@ class RekamMedis extends My_Controller {
 		$data['diagnosis'] = $post['diagnosis'];
 		$data['therapy'] = $post['therapy'];
 		$data['lab_result'] = $post['lab_result'];
-
+		$data['patient_education'] = $post['patient_education'];
+		$data['service_fee'] = $post['service_fee'];
+		
 		$result = $this->MedicalRecordModel->add_medical_record($data);
 		$medical_record_id = $this->db->insert_id();
 		
@@ -156,6 +158,8 @@ class RekamMedis extends My_Controller {
 		$data['diagnosis'] = $post['diagnosis'];
 		$data['therapy'] = $post['therapy'];
 		$data['lab_result'] = $post['lab_result'];
+		$data['patient_education'] = $post['patient_education'];
+		$data['service_fee'] = $post['service_fee'];
 		$data['update_time'] = $this->TimeConstant->get_current_timestamp();
 		$medical_record_id = $post['medical_record_id'];
 
@@ -171,6 +175,8 @@ class RekamMedis extends My_Controller {
 	}
 
 	function upsert_medicine_record($data, $medical_record_id) {
+		$this->MedicineRecordModel->delete_medicine_record($data['medicine_record_id'], $medical_record_id);
+
 		for ($i = 0; $i < count($data['medicine_id']); $i++) { 
 			$data_medicine_record['medicine_id'] = $data['medicine_id'][$i];
 			$data_medicine_record['dosis'] = $data['dosis'][$i];

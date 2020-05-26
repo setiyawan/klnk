@@ -66,7 +66,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="">No KTP/Identitas</label>
-                          <input name="id_card_number" type="number" class="form-control" value="<?= isset($patient[0]) ? $patient[0]['id_card_number'] : '' ?>">
+                          <input name="id_card_number" class="form-control" value="<?= isset($patient[0]) ? $patient[0]['id_card_number'] : '' ?>">
                         </div>
                       </div>
                       <div class="col-md-6">

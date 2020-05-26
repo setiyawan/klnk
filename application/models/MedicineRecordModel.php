@@ -23,6 +23,12 @@ class MedicineRecordModel extends CI_Model {
         return $this->db->update('medicine_record');
     }
 
+    public function delete_medicine_record($data=[], $medical_record_id) {
+        $this->db->where('medical_record_id', $medical_record_id);
+        $this->db->where_not_in('medicine_record_id', $data);
+        $this->db->delete('medicine_record');
+    }
+
 }
 
 ?>

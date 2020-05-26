@@ -87,7 +87,7 @@
                           <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Keluhan Utama</label>
                             <div class="form-group">
-                              <textarea name="symptom" class="form-control" rows="5"><?= isset($medical_record[0]) ? $medical_record[0]['symptom'] : '' ?></textarea>
+                              <textarea name="symptom" required class="form-control" rows="5"><?= isset($medical_record[0]) ? $medical_record[0]['symptom'] : '' ?></textarea>
                             </div>
                           </div>
                         </div>
@@ -97,13 +97,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="">Tekanan Darah (mmHg)</label>
-                            <input name="blood_pressure" type="text" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['blood_pressure'] : '' ?>">
+                            <input name="blood_pressure" required type="text" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['blood_pressure'] : '' ?>">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="">Suhu Tubuh (<span>&#8451;</span>)</label>
-                            <input name="body_temperature" type="number" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['body_temperature'] : '' ?>">
+                            <input name="body_temperature" required type="number" class="form-control" step="0.01" value="<?= isset($medical_record[0]) ? $medical_record[0]['body_temperature'] : '' ?>">
                           </div>
                         </div>
                       </div>
@@ -112,13 +112,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="">Detak Jantung (per menit)</label>
-                            <input name="pulse" type="number" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['pulse'] : '' ?>">
+                            <input name="pulse" type="number" required class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['pulse'] : '' ?>">
                           </div>
                         </div>
                         <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Pernapasan (per menit)</label>
-                            <input name="respiration" type="number" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['respiration'] : '' ?>">
+                            <input name="respiration" type="number" required class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['respiration'] : '' ?>">
                           </div>                       
                         </div>
                       </div>
@@ -127,13 +127,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="">Tinggi Badan (cm)</label>
-                            <input name="height" type="number" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['height'] : '' ?>">
+                            <input name="height" type="number" required class="form-control" step="0.01" value="<?= isset($medical_record[0]) ? $medical_record[0]['height'] : '' ?>">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-static">Berat Badan (kg)</label>
-                            <input name="weight" type="number" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['weight'] : '' ?>">
+                            <input name="weight" type="number" required class="form-control" step="0.01" value="<?= isset($medical_record[0]) ? $medical_record[0]['weight'] : '' ?>">
                           </div>                       
                         </div>
                       </div>
@@ -143,7 +143,7 @@
                           <div class="form-group">
                             <label>Hasil lab</label>
                             <div class="form-group">
-                              <textarea name="lab_result" class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['lab_result'] : '' ?></textarea>
+                              <textarea name="lab_result" required class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['lab_result'] : '' ?></textarea>
                             </div>
                           </div>
                         </div>
@@ -151,7 +151,7 @@
                           <div class="form-group">
                             <label>Diagnosa</label>
                             <div class="form-group">
-                              <textarea name="diagnosis" class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['diagnosis'] : '' ?></textarea>
+                              <textarea name="diagnosis" required class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['diagnosis'] : '' ?></textarea>
                             </div>
                           </div>
                         </div>
@@ -162,7 +162,7 @@
                           <div class="form-group">
                             <label>Terapi</label>
                             <div class="form-group">
-                              <textarea name="therapy" class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['therapy'] : '' ?></textarea>
+                              <textarea name="therapy" required class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['therapy'] : '' ?></textarea>
                             </div>
                           </div>
                         </div>
@@ -170,7 +170,7 @@
                           <div class="form-group">
                             <label>KIE</label>
                             <div class="form-group">
-                              <textarea name="patient_education" class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['patient_education'] : '' ?></textarea>
+                              <textarea name="patient_education" required class="form-control" rows="3"><?= isset($medical_record[0]) ? $medical_record[0]['patient_education'] : '' ?></textarea>
                             </div>
                           </div>
                         </div>
@@ -187,7 +187,40 @@
                     <!-- <p class="card-category">Complete your profile</p> -->
                   </div>
                   <div class="card-body" id="card-body-medicine">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <label>Nama Obat</label>
+                        </div>
+                        <div class="col-md-2">
+                          <label>Jumlah</label>
+                        </div>
+                        <div class="col-md-3">
+                          <label>Harga</label>
+                        </div>
+                        <div class="col-md-1">
+                          <label>Opsi</label>
+                        </div>
+                      </div>
                       <div id="append-target-medicine"></div>
+
+                      <div class="row">
+                        <div class="col-md-7" align="right" style="margin-top: 15px;">
+                          <label>Biaya Layanan</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input name="service_fee" id="service_fee" type="number" class="form-control" value="<?= isset($medical_record[0]) ? $medical_record[0]['service_fee'] : '' ?>">
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-7" align="right" style="margin-top: 15px;">
+                          <label> <strong>Total Biaya</strong> </label>
+                        </div>
+                        <div class="col-md-3">
+                          <div id="total_amount" style="margin-top: 15px; font-weight: bold; font-size: 18px"></div>
+                        </div>
+                      </div>
+
                       <div id="dropdown-medicine-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -80px; margin-left: 20px;">
                       </div>
                       <button type="submit" class="btn btn-primary pull-right">Submit</button>

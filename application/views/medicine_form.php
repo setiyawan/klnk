@@ -46,7 +46,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="">Tgl Kadaluarsa</label>
-                          <input name="expired_date" type="date" class="form-control" value="<?= isset($medicine[0]) ? $medicine[0]['expired_date'] : '' ?>">
+                          <input name="expired_date" type="date" required class="form-control" value="<?= isset($medicine[0]) ? $medicine[0]['expired_date'] : '' ?>">
                         </div>
                       </div>
                     </div>
@@ -55,7 +55,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="">Harga (per satuan)</label>
-                          <input name="price" type="number" class="form-control" value="<?= isset($medicine[0]) ? $medicine[0]['price'] : '' ?>">
+                          <input name="price" type="number" required  class="form-control" value="<?= isset($medicine[0]) ? $medicine[0]['price'] : '' ?>">
                         </div>
                       </div>
                       <div class="col-md-6">
