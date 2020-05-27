@@ -221,7 +221,7 @@
                         </div>
                       </div>
 
-                      <div id="dropdown-medicine-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -80px; margin-left: 20px;">
+                      <div id="dropdown-medicine-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -165px; margin-left: 20px;">
                       </div>
                       <button type="submit" class="btn btn-primary pull-right">Submit</button>
                       <div class="clearfix"></div>

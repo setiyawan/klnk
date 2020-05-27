@@ -11,6 +11,7 @@ $(document).ready(function() {
           medicine_id: medicine_record[i].medicine_id,
           total_amount: medicine_record[i].total_amount,
           dosis: medicine_record[i].dosis,
+          unit: medicine_record[i].unit,
           price: medicine_record[i].total_amount/medicine_record[i].dosis,
         };
         data_medicine_record.push(medicine);
@@ -87,6 +88,7 @@ function add_default_medicine() {
         medicine_id: '',
         total_amount: 0,
         dosis: '',
+        unit: '',
         price: 0,
     };
   data_medicine_record.push(medicine);
@@ -116,7 +118,8 @@ function append_medicine_search(keyword) {
     var medicine = {
       medicine_name: medicine_list[i].medicine_name,
       medicine_id: medicine_list[i].medicine_id,
-      price: medicine_list[i].price
+      price: medicine_list[i].price,
+      unit: medicine_list[i].unit
     };
 
     if (medicine.medicine_name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())) {
@@ -191,15 +194,15 @@ function render_medicine_record(data, id) {
 }
 
 function render_medicine_search(data) {
-  var medicine_unit = '';
-  if (data.unit == 1) {
-    medicine_unit = 'Butir';
-  } else  if (data.unit == 2) {
-    medicine_unit = 'Strip';
+  var display_name = data.medicine_name;
+  if (data.unit == '1') {
+    display_name = display_name + '&nbsp<strong>(Butir)</strong>';
+  } else  if (data.unit == '2') {
+    display_name = display_name + '&nbsp<strong>(Strip)</strong>';
   }
 
   var medicine_search = `
-    <a class="dropdown-item dropdown-item-medicine" price="` + data.price + `" medicine_name="` + data.medicine_name + `" medicine_id="` + data.medicine_id + `"  href="javascript:;" value="12"> ` + data.medicine_name + ` </a>
+    <a class="dropdown-item dropdown-item-medicine" price="` + data.price + `" medicine_name="` + data.medicine_name + `" medicine_id="` + data.medicine_id + `"  href="javascript:;" value=""> ` + display_name + ` </a>
   `;
 
   return medicine_search;
@@ -218,5 +221,5 @@ function to_rupiah(number) {
   }
   
   rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-  return  'Rp. ' + rupiah;
+  return  'Rp ' + rupiah;
 }
