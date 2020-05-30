@@ -27,7 +27,7 @@
                       <?php if ($action == 'update') { ?>
                       <div class="col-md-6 col-6">
                         <button class="btn btn-add btn-sm pull-right" type="button" data-toggle="tooltip" title="Tambah Obat Baru Lainnya" onClick="document.location.href='<?= base_url()?>obat/tambah'">
-                          <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah yang Lain
+                          <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah Obat Baru
                         </button>
                       </div>
                       <?php } ?>

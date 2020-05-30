@@ -86,6 +86,7 @@ class RekamMedis extends My_Controller {
 		$data['constant_conscious'] = $this->MedicalConstant->get_conscious();
 		$data['medicine_record'] = [];
     	$data['medicine'] = $this->MedicineModel->get_medicine();
+    	$data['constant_unit'] = $this->MedicineConstant->get_unit();
 
 		$this->load->view('side/header');
 		$this->load->view('medical_record_form', $data);
@@ -109,6 +110,7 @@ class RekamMedis extends My_Controller {
     	$data['filter'] = $filter;
     	$data['action'] = 'update';
     	$data['constant_conscious'] = $this->MedicalConstant->get_conscious();
+    	$data['constant_unit'] = $this->MedicineConstant->get_unit();
 
 		$this->load->view('side/header');
 		$this->load->view('medical_record_form', $data);
