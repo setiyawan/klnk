@@ -84,6 +84,8 @@ class Pasien extends My_Controller {
 
 	// POST ACTION
 	public function add() {
+		$this->validate_referer();
+		
 		$post = $this->input->post();
 		$data['patient_name'] = $post['patient_name'];
 		$data['birth_date'] = $post['birth_date'];
@@ -105,6 +107,8 @@ class Pasien extends My_Controller {
 	}
 
 	public function update() {
+		$this->validate_referer();
+		
 		$post = $this->input->post();
 		$data['patient_name'] = $post['patient_name'];
 		$data['birth_date'] = $post['birth_date'];

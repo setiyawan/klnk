@@ -117,6 +117,8 @@ class RekamMedis extends My_Controller {
 
 	// POST ACTION
 	public function add() {
+		$this->validate_referer();
+		
 		$post = $this->input->post();
 		$data['doctor_id'] = $this->get_session_by_id('user_id');
 		$data['patient_id'] = $post['patient_id'];
@@ -138,6 +140,8 @@ class RekamMedis extends My_Controller {
 		$medical_record_id = $this->db->insert_id();
 		
 		$this->upsert_medicine_record($post, $medical_record_id);
+		$this->upsert_medicine_stock($medical_record_id, -1);
+		
 		if ($result) {
 			$this->set_alert('success', 'Data Rekam Medis berhasil ditambahkan');
 		} else {
@@ -149,6 +153,8 @@ class RekamMedis extends My_Controller {
 	}
 
 	public function update() {
+		$this->validate_referer();
+		
 		$post = $this->input->post();
 		$data['symptom'] = $post['symptom'];
 		$data['conscious'] = $post['conscious'];
@@ -166,8 +172,14 @@ class RekamMedis extends My_Controller {
 		$data['update_time'] = $this->TimeConstant->get_current_timestamp();
 		$medical_record_id = $post['medical_record_id'];
 
+		// update stock first
+		$this->upsert_medicine_stock($medical_record_id, 1);
+
 		$result = $this->MedicalRecordModel->update_medical_record($data, $medical_record_id);
+		
 		$this->upsert_medicine_record($post, $medical_record_id);
+		$this->upsert_medicine_stock($medical_record_id, -1);
+
 		if ($result) {
 			$this->set_alert('success', 'Data Rekam Medis berhasil diperbarui');
 		} else {
@@ -192,6 +204,25 @@ class RekamMedis extends My_Controller {
 				$data_medicine_record['medical_record_id'] = $medical_record_id;
 				$this->MedicineRecordModel->add_medicine_record($data_medicine_record);
 			}
+		}
+	}
+
+	function upsert_medicine_stock($medical_record_id, $type=1) {
+		$filter['medical_record_id'] = $medical_record_id;
+		$medicine_record = $this->MedicineRecordModel->get_medicine_record($filter);
+		
+		if ($type == -1) {
+			$type = -1;
+		} else {
+			$type = 1;
+		}
+
+		for ($i = 0; $i < count($medicine_record); $i++) { 
+			$data['medicine_id'] = $medicine_record[$i]['medicine_id'];
+			$data['update_stock'] = $medicine_record[$i]['dosis'] * $type;
+			$data['source'] = 2;
+
+			$this->MedicineModel->upsert_stock($data);
 		}
 	}
 }

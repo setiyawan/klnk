@@ -42,8 +42,8 @@
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <!-- <script src="<?php echo base_url() ?>asset/demo/demo.js"></script> -->
 
-  <?php if (!empty($add_js) && $add_js == 'medical-record') { ?>
-  <script src="<?php echo base_url() ?>asset/js/medical-record.js"></script>
+  <?php if (!empty($add_js)) { ?>
+  <script src="<?php echo base_url() ?>asset/js/<?= $add_js ?>.js"></script>
   <?php } ?>
   
   <script>

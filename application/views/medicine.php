@@ -70,6 +70,9 @@
                           Satuan
                         </th>
                         <th>
+                          Stok
+                        </th>
+                        <th>
                           Tgl Kadaluarsa
                         </th>
                         <th>
@@ -82,7 +85,7 @@
                       <tbody>
                         <?php if (empty($medicine)) { ?>
                         <tr>
-                          <td colspan="5" align="center">
+                          <td colspan="6" align="center">
                             Data Tidak ditemukan. Gunakan filter untuk pencarian data.
                           </td>
                         </tr>
@@ -98,6 +101,9 @@
                           </td>
                           <td>
                             <?= $constant_unit[$key['unit']] ?>
+                          </td>
+                          <td>
+                            <?= $key['current_stock'] ?>
                           </td>
                           <td <?= $filter['current_date'] > $key['expired_date'] ? 'bgcolor = "red"' : ''; ?> >
                             <?= $this->Converter->to_indonesia_date($key['expired_date']) ?>

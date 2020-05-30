@@ -33,7 +33,7 @@
       <div class="content" style="margin-top: 70px">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -50,7 +50,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
@@ -67,7 +67,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
@@ -79,6 +79,23 @@
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons">date_range</i> 7 hari terakhir
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">local_pharmacy</i>
+                  </div>
+                  <p class="card-category">Obat Kadaluarsa Bulan ini</p>
+                  <h3 class="card-title"><strong><?= $medicine_expired ?></strong></h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">link</i>
+                    <a href="<?= base_url()?>obat">Ke Halaman Obat</a>
                   </div>
                 </div>
               </div>

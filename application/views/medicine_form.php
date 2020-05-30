@@ -26,8 +26,8 @@
                       </div>
                       <?php if ($action == 'update') { ?>
                       <div class="col-md-6 col-6">
-                        <button class="btn btn-add btn-sm pull-right" type="button" onClick="document.location.href='<?= base_url()?>obat/tambah'">
-                          <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah Lagi
+                        <button class="btn btn-add btn-sm pull-right" type="button" data-toggle="tooltip" title="Tambah Obat Baru Lainnya" onClick="document.location.href='<?= base_url()?>obat/tambah'">
+                          <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah yang Lain
                         </button>
                       </div>
                       <?php } ?>
@@ -92,15 +92,17 @@
                   <div class="card-body" id="card-body-medicine">
                       <div class="row">
                         <div class="col-md-12 text-center">
-                          <h1>
+                          <label> <bold> <i> total obat </i> </bold> </label>
+                          <h1 id="medicine-stock">
                             <?= isset($medicine_stock) ? $medicine_stock : '0' ?>
                           </h1>
+                          <input type="hidden" id="last-medicine-stock" value="<?=$medicine_stock?>">
                         </div>
                         <div class="col-md-6" style="margin-top: 10px;" align="right">
                           <label>Tambah Persediaan</label>
                         </div>
                         <div class="col-md-3">
-                          <span class="bmd-form-group"><input name="update_stock" id="update_stock" type="number" class="form-control" value=""></span>
+                          <span class="bmd-form-group"><input name="update_stock" id="update-stock" type="number" class="form-control" value=""></span>
                         </div>
                       </div>
                       <br>
