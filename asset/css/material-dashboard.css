@@ -9463,21 +9463,20 @@ a.text-dark:focus {
   color: #fff;
   background-color: #00bcd4;
   border-color: #00bcd4;
-  box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
 }
 
 .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .btn.btn-primary:focus,
 .btn.btn-primary.focus,
 .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .btn.btn-primary:active,
@@ -9485,9 +9484,8 @@ a.text-dark:focus {
 .open>.btn.btn-primary.dropdown-toggle,
 .show>.btn.btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
-  box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .btn.btn-primary:active:hover,
@@ -9503,8 +9501,8 @@ a.text-dark:focus {
 .show>.btn.btn-primary.dropdown-toggle:focus,
 .show>.btn.btn-primary.dropdown-toggle.focus {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #3f1048;
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon {
@@ -9513,7 +9511,7 @@ a.text-dark:focus {
 }
 
 .open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
-  background-color: #9124a3;
+  background-color: #09acc1;
 }
 
 .btn.btn-primary.disabled:focus,
@@ -15897,21 +15895,20 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: #fff;
   background-color: #00bcd4;
   border-color: #00bcd4;
-  box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
 }
 
 .fixed-plugin .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .fixed-plugin .btn.btn-primary:focus,
 .fixed-plugin .btn.btn-primary.focus,
 .fixed-plugin .btn.btn-primary:hover {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .fixed-plugin .btn.btn-primary:active,
@@ -15919,9 +15916,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .open>.fixed-plugin .btn.btn-primary.dropdown-toggle,
 .show>.fixed-plugin .btn.btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #701c7e;
-  box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .fixed-plugin .btn.btn-primary:active:hover,
@@ -15937,8 +15933,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .show>.fixed-plugin .btn.btn-primary.dropdown-toggle:focus,
 .show>.fixed-plugin .btn.btn-primary.dropdown-toggle.focus {
   color: #fff;
-  background-color: #9124a3;
-  border-color: #3f1048;
+  background-color: #09acc1;
+  border-color: #157581;
 }
 
 .open>.fixed-plugin .btn.btn-primary.dropdown-toggle.bmd-btn-icon {
@@ -15947,7 +15943,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .open>.fixed-plugin .btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
-  background-color: #9124a3;
+  background-color: #09acc1;
 }
 
 .fixed-plugin .btn.btn-primary.disabled:focus,
@@ -17582,7 +17578,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card .card-header-primary .card-icon,
 .card .card-header-primary:not(.card-header-icon):not(.card-header-text),
 .card .card-header-primary .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+  /*box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);*/
 }
 
 .card .card-header-danger .card-icon,
@@ -17736,6 +17732,8 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 
 .card .card-header .card-title {
   margin-bottom: 3px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .card .card-header .card-category {

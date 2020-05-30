@@ -85,13 +85,21 @@ class Obat extends My_Controller {
 		$data['description'] = $post['description'];
 
 		$result = $this->MedicineModel->add_medicine($data);
-		if ($result) {
+		$medicine_id = $this->db->insert_id();
+
+		$data_stock['medicine_id'] = $medicine_id;
+		$data_stock['update_stock'] = $post['update_stock'];
+		$data_stock['current_stock'] = $post['update_stock'];
+		$data_stock['source'] = 1;
+		$result2 = $this->MedicineModel->add_stock($data_stock);
+
+		if ($result && $result2) {
 			$this->set_alert('success', 'Data Obat baru berhasil ditambahkan');
 		} else {
 			$this->set_alert('danger', 'Data Obat gagal ditambahkan. Coba ulangi lagi ya.');
 		}
 
-		redirect(base_url().'obat/detail?id='.$this->db->insert_id());
+		redirect(base_url().'obat/detail?id='.$medicine_id);
 		
 	}
 

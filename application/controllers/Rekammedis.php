@@ -98,6 +98,9 @@ class RekamMedis extends My_Controller {
     	$data['add_js'] = 'medical-record';
 
 		$filter['medical_record_id'] = $this->input->get('id', TRUE);
+		if (empty($filter['medical_record_id'])) {
+			redirect(base_url().'rekammedis');
+		}
 
     	$data['medical_record'] = $this->MedicalRecordModel->get_medical_record($filter);
     	$data['medicine_record'] = $this->MedicineRecordModel->get_medicine_record($filter);

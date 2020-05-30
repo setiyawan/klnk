@@ -10,25 +10,25 @@
       <div class="content">
         <div class="container-fluid">
            <!-- SEARCH -->
-        <form>
+        <form onsubmit="return verify_search()">
           <input type="hidden" name="q" value="search">
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
                 <label class="bmd-label-floating">No. Rekam Medis</label>
-                <input type="text" name="nomor_rekam_medis" class="form-control" value="<?= isset($filter['medical_record_number']) ? $filter['medical_record_number'] : ""  ?>">
+                <input type="text" id="nomor_rekam_medis" name="nomor_rekam_medis" class="form-control" value="<?= isset($filter['medical_record_number']) ? $filter['medical_record_number'] : ""  ?>">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">Nama</label>
-                <input type="text" name="nama" class="form-control" value="<?= isset($filter['patient_name']) ? $filter['patient_name'] : ""  ?>">
+                <input type="text" id="nama" name="nama" class="form-control" value="<?= isset($filter['patient_name']) ? $filter['patient_name'] : ""  ?>">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">Tgl kunjungan</label>
-                <input class="form-control" name="tgl_kunjungan" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" value="<?= isset($filter['visit_date']) ? $filter['visit_date'] : ""  ?>" />
+                <input class="form-control" id="tgl_kunjungan" name="tgl_kunjungan" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" value="<?= isset($filter['visit_date']) ? $filter['visit_date'] : ""  ?>" />
               </div>
             </div>
             <div class="col-md-1">
@@ -58,7 +58,7 @@
 
                         if ($default_patient_id != "") {
                       ?>
-                      <button class="btn btn-add btn-sm pull-right" onClick="document.location.href='rekammedis/tambah?idpasien=<?= $default_patient_id ?>'">
+                      <button class="btn btn-add btn-sm pull-right" data-toggle="tooltip" title="Tambah Rekam Medis Pasien" onClick="document.location.href='<?=base_url()?>rekammedis/tambah?idpasien=<?= $default_patient_id ?>'">
                         <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah
                       </button>
                       <?php } ?>
@@ -115,7 +115,7 @@
                             <?= $key['therapy'] ?>
                           </td>
                           <td class="text-primary">
-                            <button type="button" class="btn btn-warning" onClick="document.location.href='rekammedis/detail?id=<?= $key['medical_record_id'] ?>'">
+                            <button type="button" data-toggle="tooltip" title="Edit Rekam Medis Pasien" class="btn btn-warning" onClick="document.location.href='rekammedis/detail?id=<?= $key['medical_record_id'] ?>'">
                               <span _ngcontent-jkp-c19="" class="material-icons icon-image-preview">edit</span>
                             </button>
                           </td>
@@ -130,6 +130,18 @@
           </div>
         </div>
       </div>
+      <script>
+        function verify_search() {
+          if ($('#nomor_rekam_medis')[0].value  == '' && $('#nama')[0].value == '' && $('#tgl_kunjungan')[0].value == '') {
+            alert('Gunakan Minimal 1 Filter Untuk Pencarian Data Rekam Medis' + $('#tgl_kunjungan')[0].value);
+            $($('#nomor_rekam_medis')).focus();
+
+            return false;
+          }
+
+          return true;
+        }
+      </script>
       <?php $this->view('navbar/buttom_navbar'); ?>
     </div>
   </div>

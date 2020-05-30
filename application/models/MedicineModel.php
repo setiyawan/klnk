@@ -40,6 +40,15 @@ class MedicineModel extends CI_Model {
         return $this->db->update('medicine');
     }
 
+    public function add_stock($data) {
+        return $this->db->insert('medicine_stock', $data);
+    }
+
+    public function FunctionName($data) {
+        $sql = 'INSERT INTO medicine_stock (medicine_id, update_stock, current_stock, source) SELECT ? as medicine_id, ? as update_stock, current_stock + ? as current_stock, ? as source FROM medicine_stock WHERE medicine_id = ? order by medicine_stock_id DESC LIMIT 1';
+        return $db->query($sql, $data['medicine_id'], $data['update_stock'], $data['update_stock'], $data['source'], $data['medicine_id']);
+    }
+
 }
 
 ?>

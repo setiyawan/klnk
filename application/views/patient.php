@@ -51,7 +51,7 @@
                     </div>
                     <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                     <div class="col-md-6 col-6">
-                      <button class="btn btn-add btn-sm pull-right" onClick="document.location.href='pasien/tambah'">
+                      <button class="btn btn-add btn-sm pull-right" data-toggle="tooltip" title="Tambah Pasien Baru" onClick="document.location.href='pasien/tambah'">
                         <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah
                       </button>
                     </div>
@@ -107,10 +107,10 @@
                             <?= $key['address'] ?>
                           </td>
                           <td class="text-primary">
-                            <button type="button" class="btn btn-warning" onClick="document.location.href='<?= base_url()?>pasien/detail?id=<?= $key['patient_id'] ?>'">
+                            <button type="button" class="btn btn-warning" data-toggle="tooltip" title="Edit Data Pasien" onClick="document.location.href='<?= base_url()?>pasien/detail?id=<?= $key['patient_id'] ?>'">
                               <span _ngcontent-jkp-c19="" class="material-icons icon-image-preview">edit</span>
                             </button>
-                            <button type="button" class="btn btn-success" onClick="document.location.href='<?= base_url()?>rekammedis?q=search&nomor_rekam_medis=<?= $key['medical_record_number'] ?>'">
+                            <button type="button" class="btn btn-success" data-toggle="tooltip" title="Lihat Rekam Medis Pasien" onClick="document.location.href='<?= base_url()?>rekammedis?q=search&nomor_rekam_medis=<?= $key['medical_record_number'] ?>'">
                               <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">assignment</span>
                             </button>
                           </td>
