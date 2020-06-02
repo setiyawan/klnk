@@ -30,6 +30,7 @@ $(document).ready(function() {
 var data_medicine_record = [];
 var current_medicine_index = 0;
 var medicine_amount = 0;
+var latest_search_found = [];
 
 function init_main_function() {
   $(".icon-medicine-add").click(function(){
@@ -47,8 +48,7 @@ function init_main_function() {
     append_medicine();
   });
 
-  $(".medicine-name").keyup(function(){
-    remove_medicine_search();
+  $('.medicine-name').one("keyup", function(){
     append_medicine_search(this.value);
 
     var index = this.id;
@@ -114,18 +114,26 @@ function remove_medicine_search() {
 
 function append_medicine_search(keyword) {
   var found = false;
-  for (var i = 0; i < medicine_list.length; i++) {
+
+  var search_found = medicine_list.filter(o => o.medicine_name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()));
+  if (JSON.stringify(latest_search_found) == JSON.stringify(search_found)) {
+    init_main_function();
+    return;
+  }
+
+  latest_search_found = search_found;
+  remove_medicine_search();
+  
+  for (var i = 0; i < search_found.length; i++) {
     var medicine = {
-      medicine_name: medicine_list[i].medicine_name,
-      medicine_id: medicine_list[i].medicine_id,
-      price: medicine_list[i].price,
-      unit: medicine_list[i].unit
+      medicine_name: search_found[i].medicine_name,
+      medicine_id: search_found[i].medicine_id,
+      price: search_found[i].price,
+      unit: search_found[i].unit
     };
 
-    if (medicine.medicine_name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())) {
-      $('#dropdown-medicine-list').append(render_medicine_search(medicine));
-      found = true;
-    }
+    $('#dropdown-medicine-list').append(render_medicine_search(medicine));
+    found = true;
   }
 
   if (found) {
@@ -148,6 +156,7 @@ function calculate_from_medicine_name(attr) {
   data_medicine_record[current_medicine_index].medicine_id = attr.medicine_id.value;
   data_medicine_record[current_medicine_index].medicine_name = attr.medicine_name.value;
   data_medicine_record[current_medicine_index].price = attr.price.value;
+  data_medicine_record[current_medicine_index].unit = attr.unit.value;
   data_medicine_record[current_medicine_index].total_amount = attr.price.value * data_medicine_record[current_medicine_index].dosis;
 }
 
@@ -164,11 +173,16 @@ function render_medicine_record(data, id) {
     action_button = `<i class="material-icons icon-medicine-delete" id="medicine-delete-` + id + `" style="padding-top: 10px; cursor:pointer;">delete</i>`;
   }
 
+  var display_name =  data.medicine_name;
+  if (display_name != '') {
+    display_name = display_name + ` (` + medicine_unit[data.unit] + `)`;
+  }
+
   var medicine_row = ` 
     <div class="row row-medicine" id="row-medicine-list-` + id + `" style="margin-top: -15px;">
       <div class="col-md-5">
         <div class="form-group">
-          <input type="text" id="medicine-name-id-` + id + `" class="form-control medicine-name" value="` + data.medicine_name + `">
+          <input type="text" id="medicine-name-id-` + id + `" class="form-control medicine-name" value="` + display_name + `">
           <input type="hidden" id="medicine-id-` + id + `" name="medicine_id[]" value="` + data.medicine_id + `">
           <input type="hidden" name="medicine_record_id[]" value="` + data.medicine_record_id + `">
         </div>
@@ -194,15 +208,10 @@ function render_medicine_record(data, id) {
 }
 
 function render_medicine_search(data) {
-  var display_name = data.medicine_name;
-  if (data.unit == '1') {
-    display_name = display_name + '&nbsp<strong>(Butir)</strong>';
-  } else  if (data.unit == '2') {
-    display_name = display_name + '&nbsp<strong>(Strip)</strong>';
-  }
+  var display_name = data.medicine_name + '&nbsp<strong>(' + medicine_unit[data.unit] + ')</strong>';
 
   var medicine_search = `
-    <a class="dropdown-item dropdown-item-medicine" price="` + data.price + `" medicine_name="` + data.medicine_name + `" medicine_id="` + data.medicine_id + `"  href="javascript:;" value=""> ` + display_name + ` </a>
+    <a class="dropdown-item dropdown-item-medicine" price="` + data.price + `" medicine_name="` + data.medicine_name + `" medicine_id="` + data.medicine_id + `" unit="` + data.unit + `" href="javascript:;" value=""> ` + display_name + ` </a>
   `;
 
   return medicine_search;

@@ -37,7 +37,7 @@
                     <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                     <?php if ($action == "update") {?>
                     <div class="col-md-6 col-6">
-                      <button class="btn btn-success btn-sm pull-right" onClick="document.location.href='<?=base_url()?>rekammedis?q=search&nomor_rekam_medis=<?= $medical_record_number ?>'">
+                      <button class="btn btn-success btn-sm pull-right" data-toggle="tooltip" title="Lihat Rekam Medis Pasien" onClick="document.location.href='<?=base_url()?>rekammedis?q=search&nomor_rekam_medis=<?= $medical_record_number ?>'">
                         <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">assignment</span>
                       </button>
                     </div>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="row" style="padding-top: 20px;">
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label>Alamat</label>
                           <div class="form-group">

@@ -72,7 +72,7 @@ class Pasien extends My_Controller {
 
     	$data['patient'] = $this->PatientModel->get_patient($filter);
     	$data['filter'] = $filter;
-    	$data['table_label'] = 'Lihat/Perbarui Data Pasien';
+    	$data['table_label'] = 'Detail/Perbarui Data Pasien';
     	$data['action'] = 'update';
 		$data['constant_gender'] = $this->UserConstant->get_gender();
 		$data['constant_blood_group'] = $this->MedicalConstant->get_blood_group();
@@ -84,6 +84,8 @@ class Pasien extends My_Controller {
 
 	// POST ACTION
 	public function add() {
+		$this->validate_referer();
+		
 		$post = $this->input->post();
 		$data['patient_name'] = $post['patient_name'];
 		$data['birth_date'] = $post['birth_date'];
@@ -105,6 +107,8 @@ class Pasien extends My_Controller {
 	}
 
 	public function update() {
+		$this->validate_referer();
+		
 		$post = $this->input->post();
 		$data['patient_name'] = $post['patient_name'];
 		$data['birth_date'] = $post['birth_date'];

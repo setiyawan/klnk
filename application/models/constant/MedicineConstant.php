@@ -2,7 +2,12 @@
 
 class MedicineConstant extends CI_Model {
 	function get_unit() {
-		return array('1' => 'Butir', '2' => 'Strip' );
+		return array(
+			'1' => 'Tablet', 
+			'2' => 'Kapsul', 
+			'3' => 'Strip', 
+			'4' => 'Botol'
+		);
 	}
 
 	function get_expired_medicine() {

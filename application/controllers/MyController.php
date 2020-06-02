@@ -78,6 +78,12 @@ class My_Controller extends CI_Controller {
 		return $result;
 	}
 
+	protected function validate_referer() {
+		if ($_SERVER['HTTP_REFERER'] == NULL) {
+			redirect(base_url());
+		}
+	}
+
     // updaload image will return file name
     // path is /asset/img/[path]
     // 

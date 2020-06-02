@@ -50,7 +50,7 @@
                     </div>
                     <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                     <div class="col-md-6 col-6">
-                      <button class="btn btn-add btn-sm pull-right" onClick="document.location.href='obat/tambah'">
+                      <button class="btn btn-add btn-sm pull-right" data-toggle="tooltip" title="Tambah Data Obat" onClick="document.location.href='obat/tambah'">
                         <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah
                       </button>
                     </div>
@@ -70,6 +70,9 @@
                           Satuan
                         </th>
                         <th>
+                          Stok
+                        </th>
+                        <th>
                           Tgl Kadaluarsa
                         </th>
                         <th>
@@ -82,7 +85,7 @@
                       <tbody>
                         <?php if (empty($medicine)) { ?>
                         <tr>
-                          <td colspan="5" align="center">
+                          <td colspan="6" align="center">
                             Data Tidak ditemukan. Gunakan filter untuk pencarian data.
                           </td>
                         </tr>
@@ -99,6 +102,9 @@
                           <td>
                             <?= $constant_unit[$key['unit']] ?>
                           </td>
+                          <td>
+                            <?= $key['current_stock'] ?>
+                          </td>
                           <td <?= $filter['current_date'] > $key['expired_date'] ? 'bgcolor = "red"' : ''; ?> >
                             <?= $this->Converter->to_indonesia_date($key['expired_date']) ?>
                           </td>
@@ -106,10 +112,10 @@
                             <?= $key['description'] ?>
                           </td>
                           <td class="text-primary">
-                            <button type="button" class="btn btn-warning" onClick="document.location.href='<?= base_url() ?>obat/detail?id=<?= $key['medicine_id'] ?>'">
+                            <button type="button" class="btn btn-warning" data-toggle="tooltip" title="Edit Data Obat" onClick="document.location.href='<?= base_url() ?>obat/detail?id=<?= $key['medicine_id'] ?>'">
                               <span _ngcontent-jkp-c19="" class="material-icons icon-image-preview">edit</span>
                             </button>
-                            <button type="button" class="btn btn-danger" onClick="if (!confirm('Kamu yakin ingin hapus data obat ini?')) return; document.location.href='<?= base_url() ?>obat/delete?id=<?= $key['medicine_id'] ?>&<?= $_SERVER['QUERY_STRING'] ?>'">
+                            <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data Obat" onClick="if (!confirm('Kamu yakin ingin hapus data obat ini?')) return; document.location.href='<?= base_url() ?>obat/delete?id=<?= $key['medicine_id'] ?>&<?= $_SERVER['QUERY_STRING'] ?>'">
                               <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">delete</span>
                             </button>
                           </td>

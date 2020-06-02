@@ -87,7 +87,7 @@
                           <div class="form-group bmd-form-group">
                             <label class="bmd-label-static">Keluhan Utama</label>
                             <div class="form-group">
-                              <textarea name="symptom" required class="form-control" rows="5"><?= isset($medical_record[0]) ? $medical_record[0]['symptom'] : '' ?></textarea>
+                              <textarea name="symptom" required class="form-control" rows="6"><?= isset($medical_record[0]) ? $medical_record[0]['symptom'] : '' ?></textarea>
                             </div>
                           </div>
                         </div>
@@ -239,4 +239,5 @@
 <script>
     var medicine_record = <?php echo json_encode($medicine_record); ?>;
     var medicine_list = <?php echo json_encode($medicine); ?>;
+    var medicine_unit =  <?php echo json_encode($constant_unit); ?>;
 </script>

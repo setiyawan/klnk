@@ -36,7 +36,7 @@ class Obat extends My_Controller {
     	$filter['medicine_name'] = $this->input->get('nama_obat', TRUE);
     	$filter['expired_date'] = $this->input->get('kadaluarsa', TRUE);
     	$filter['current_date'] = $this->TimeConstant->get_current_timestamp();
-		$data['medicine'] = $this->MedicineModel->get_medicine($filter);
+		$data['medicine'] = $this->MedicineModel->get_medicine_with_stock($filter);
 
     	$data['filter'] = $filter;
     	$data['constant_unit'] = $this->MedicineConstant->get_unit();
@@ -49,6 +49,7 @@ class Obat extends My_Controller {
 
 	public function tambah() {
     	$data['active_menu']['active_left_navbar'] = 'medicine';
+		$data['add_js'] = 'medicine';
 
 		$data['table_label'] = 'Tambah Data Obat';
 		$data['action'] = 'add';
@@ -61,10 +62,15 @@ class Obat extends My_Controller {
 
 	public function detail() {
     	$data['active_menu']['active_left_navbar'] = 'medicine';
+		$data['add_js'] = 'medicine';
 
 		$filter['medicine_id'] = $this->input->get('id', TRUE);
+		if (empty($filter['medicine_id'])) {
+			redirect(base_url().'obat');
+		}
 
     	$data['medicine'] = $this->MedicineModel->get_medicine($filter);
+    	$data['medicine_stock'] = $this->MedicineModel->get_stock($filter['medicine_id'])[0]['current_stock'];
     	$data['filter'] = $filter;
     	$data['table_label'] = 'Lihat/Perbarui Data Obat';
     	$data['action'] = 'update';
@@ -77,6 +83,8 @@ class Obat extends My_Controller {
 
 	// POST ACTION
 	public function add() {
+		$this->validate_referer();
+		
 		$post = $this->input->post();
 		$data['medicine_name'] = $post['medicine_name'];
 		$data['unit'] = $post['unit'];
@@ -85,17 +93,27 @@ class Obat extends My_Controller {
 		$data['description'] = $post['description'];
 
 		$result = $this->MedicineModel->add_medicine($data);
-		if ($result) {
+		$medicine_id = $this->db->insert_id();
+
+		$data_stock['medicine_id'] = $medicine_id;
+		$data_stock['update_stock'] = $post['update_stock'];
+		$data_stock['current_stock'] = $post['update_stock'];
+		$data_stock['source'] = 1;
+		$result2 = $this->MedicineModel->add_stock($data_stock);
+
+		if ($result && $result2) {
 			$this->set_alert('success', 'Data Obat baru berhasil ditambahkan');
 		} else {
 			$this->set_alert('danger', 'Data Obat gagal ditambahkan. Coba ulangi lagi ya.');
 		}
 
-		redirect(base_url().'obat/detail?id='.$this->db->insert_id());
+		redirect(base_url().'obat/detail?id='.$medicine_id);
 		
 	}
 
 	public function update() {
+		$this->validate_referer();
+
 		$post = $this->input->post();
 		$data['medicine_name'] = $post['medicine_name'];
 		$data['unit'] = $post['unit'];
@@ -105,7 +123,13 @@ class Obat extends My_Controller {
 		$data['update_time'] = $this->TimeConstant->get_current_timestamp();
 
 		$result = $this->MedicineModel->update_medicine($data, $post['medicine_id']);
-		if ($result) {
+
+		$data_stock['medicine_id'] = $post['medicine_id'];
+		$data_stock['update_stock'] = $post['update_stock'];
+		$data_stock['source'] = 1;
+		$result2 = $this->MedicineModel->upsert_stock($data_stock);
+
+		if ($result && $result2) {
 			$this->set_alert('success', 'Data Obat berhasil diperbarui');
 		} else {
 			$this->set_alert('danger', 'Data Obat gagal diperbarui. Coba ulangi lagi ya.');
@@ -115,6 +139,8 @@ class Obat extends My_Controller {
 	}
 
 	public function delete() {
+		$this->validate_referer();
+		
 		$medicine_id = $this->input->get('id', TRUE);
 		$data['status'] = 3;
 		$data['update_time'] = $this->TimeConstant->get_current_timestamp();

@@ -28,6 +28,7 @@ class Dashboard extends My_Controller {
     	$this->must_login();
         $this->load->model('MedicalRecordModel');
         $this->load->model('PatientModel');
+        $this->load->model('MedicineModel');
     }
     
     // GET ACTION
@@ -35,11 +36,14 @@ class Dashboard extends My_Controller {
     	$data['active_menu']['active_left_navbar'] = 'dashboard';
     	
     	$filter['x_days'] = $this->TimeConstant->get_date_min_x_days(7);
+    	$filter['current_month'] = $this->TimeConstant->get_current_month();
+    	$filter['current_year'] = $this->TimeConstant->get_current_year();
 
     	$data['user_full_name'] = $this->get_session_by_id('full_name');
     	$data['patient_count'] = $this->PatientModel->get_patient_count();
     	$data['medical_record_count'] = $this->MedicalRecordModel->get_medical_record_count();
     	$data['medical_record_count_7_days'] = $this->MedicalRecordModel->get_medical_record_count($filter);
+    	$data['medicine_expired'] = $this->MedicineModel->get_expired_medicine_count($filter);
 
 		$this->load->view('side/header');
 		$this->load->view('dashboard', $data);
