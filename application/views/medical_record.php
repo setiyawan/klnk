@@ -92,7 +92,11 @@
                         <?php if (empty($medical_record)) { ?>
                         <tr>
                           <td colspan="6" align="center">
-                            Data Tidak ditemukan. Gunakan filter untuk pencarian data.
+                            <?php if ($default_patient_id != "") { ?>
+                              Pasien tersebut belum mempunyai rekam medis.
+                            <?php } else { ?>
+                              Data rekam medis tidak ditemukan. Gunakan filter untuk pencarian data.
+                            <?php } ?>
                           </td>
                         </tr>
                         <?php } ?>

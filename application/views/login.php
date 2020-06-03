@@ -8,7 +8,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title" style="text-align: center;">Silahkan Masuk</h4>
+                  <h4 class="card-title" style="text-align: center;">User Login</h4>
                   <!-- <p class="card-category">Complete your profile</p> -->
                 </div>
                 <div class="card-body">
@@ -27,7 +27,7 @@
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right">Masuk</button>
+                    <button type="submit" class="btn btn-primary pull-right">Login</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>

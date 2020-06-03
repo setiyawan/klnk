@@ -16,7 +16,7 @@
             <div class="col-md-8">
               <div class="form-group">
                 <label class="bmd-label-floating">Nama Obat</label>
-                <input name="nama_obat" type="text" class="form-control" value="<?= isset($filter['medicine_name']) ? $filter['medicine_name'] : ""  ?>">
+                <input name="nama_obat" type="text" class="form-control" value="<?= $this->Ternary->isset_value($filter['medicine_name']) ?>">
               </div>
             </div>
 
@@ -78,7 +78,7 @@
                         <th>
                           Deskripsi Kegunaan
                         </th>
-                        <th width="180px">
+                        <th width="140px">
                           Opsi
                         </th>
                       </thead>

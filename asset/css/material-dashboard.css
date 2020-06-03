@@ -2327,7 +2327,7 @@ pre code {
   padding: 0.4375rem 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: #495057;
+  /*color: #495057;*/
   background-color: rgba(0, 0, 0, 0);
   background-clip: padding-box;
   border: 1px solid #d2d2d2;
@@ -9433,13 +9433,13 @@ a.text-dark:focus {
 
 .btn {
   position: relative;
-  padding: 12px 30px;
+  /*padding: 12px 30px;*/
   margin: 0.3125rem 1px;
-  font-size: .75rem;
-  font-weight: 400;
+  /*font-size: .75rem;*/
+  font-weight: bold;
   line-height: 1.428571;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 0;
   cursor: pointer;
   background-color: transparent;
@@ -9463,6 +9463,7 @@ a.text-dark:focus {
   color: #fff;
   background-color: #00bcd4;
   border-color: #00bcd4;
+  padding: 12px 30px;
 }
 
 .btn.btn-primary:hover {
@@ -9531,7 +9532,7 @@ a.text-dark:focus {
 .btn.btn-primary:focus,
 .btn.btn-primary:active,
 .btn.btn-primary:hover {
-  box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+  /*box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);*/
 }
 
 .btn.btn-primary.btn-link {
@@ -9659,8 +9660,8 @@ a.text-dark:focus {
 }
 
 .btn.btn-add:hover {
-  color: #fff;
-  background-color: #00aec5;
+  color: #00aec5;
+  background-color: white;
   border-color: transparent;
 }
 
@@ -11309,13 +11310,15 @@ fieldset[disabled][disabled] .btn-group-raised .btn,
 .btn-group-sm>.btn,
 .btn-group-sm .btn {
   padding: 0.40625rem 1.25rem;
-  font-size: 0.6875rem;
+  /*font-size: 0.6875rem;*/
   line-height: 1.5;
   border-radius: 0.2rem;
 }
 
 .btn.btn-round {
   border-radius: 30px;
+  font-size: .75rem !important;
+  padding: 12px 30px;
 }
 
 .btn.btn-fab,
@@ -11882,7 +11885,7 @@ form {
   padding-left: 0;
   padding-right: 0;
   border-radius: 0;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .form-control:focus,
@@ -11893,19 +11896,19 @@ form {
 }
 
 .form-control::-moz-placeholder {
-  color: #AAAAAA;
+  color: #7E7E93;
   font-weight: 400;
   font-size: 14px;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #AAAAAA;
+  color: #7E7E93;
   font-weight: 400;
   font-size: 14px;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #AAAAAA;
+  color: #7E7E93;
   font-weight: 400;
   font-size: 14px;
 }
@@ -13241,7 +13244,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 
 .bmd-form-group:not(.has-success):not(.has-danger) [class^='bmd-label'].bmd-label-floating,
 .bmd-form-group:not(.has-success):not(.has-danger) [class*=' bmd-label'].bmd-label-floating {
-  color: #AAAAAA;
+  color: #7E7E93;
 }
 
 .bmd-form-group [class^='bmd-label'],
@@ -13297,7 +13300,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group label {
-  color: #AAAAAA;
+  color: #7E7E93;
 }
 
 .bmd-form-group .radio label,
@@ -13373,7 +13376,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-sm label {
-  color: #AAAAAA;
+  color: #7E7E93;
 }
 
 .bmd-form-group.bmd-form-group-sm .radio label,
@@ -13449,7 +13452,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-lg label {
-  color: #AAAAAA;
+  color: #7E7E93;
 }
 
 .bmd-form-group.bmd-form-group-lg .radio label,
@@ -13525,7 +13528,7 @@ input::placeholder {
 }
 
 label {
-  color: #AAAAAA;
+  color: #7E7E93;
 }
 
 .radio label,
@@ -17023,7 +17026,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #89229b;
+  color: #00a5bb;
   text-decoration: none;
 }
 
@@ -17040,7 +17043,7 @@ a .material-icons {
 label {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: #7E7E93;
   font-weight: 400;
 }
 

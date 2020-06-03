@@ -29,6 +29,7 @@ class My_Controller extends CI_Controller {
 		$this->load->library('upload');
 
         $this->load->model('util/Converter');
+        $this->load->model('util/Ternary');
 
         $this->load->model('constant/TimeConstant'); 
         $this->load->model('constant/UserConstant');

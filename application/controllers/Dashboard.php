@@ -42,7 +42,7 @@ class Dashboard extends My_Controller {
     	$data['user_full_name'] = $this->get_session_by_id('full_name');
     	$data['patient_count'] = $this->PatientModel->get_patient_count();
     	$data['medical_record_count'] = $this->MedicalRecordModel->get_medical_record_count();
-    	$data['medical_record_count_7_days'] = $this->MedicalRecordModel->get_medical_record_count($filter);
+    	$data['medical_record_count_one_month'] = $this->MedicalRecordModel->get_medical_record_count($filter);
     	$data['medicine_expired'] = $this->MedicineModel->get_expired_medicine_count($filter);
 
 		$this->load->view('side/header');
