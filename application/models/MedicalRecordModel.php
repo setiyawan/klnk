@@ -37,6 +37,14 @@ class MedicalRecordModel extends CI_Model {
             $this->db->where('date(visit_date_time) >=', $filter['x_days']);
         }
 
+        if (!empty($filter['current_month'])) {
+            $this->db->where('month(visit_date_time)', $filter['current_month']);
+        }
+
+        if (!empty($filter['current_year'])) {
+            $this->db->where('year(visit_date_time)', $filter['current_year']);
+        }
+
         return $this->db->count_all_results('medical_record');
     }
 

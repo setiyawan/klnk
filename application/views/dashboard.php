@@ -56,7 +56,7 @@
                   <div class="card-icon">
                     <i class="material-icons">content_paste</i>
                   </div>
-                  <p class="card-category">Jumlah Rekam Medis</p>
+                  <p class="card-category">Jumlah Pasien Terlayani</p>
                   <h3 class="card-title"><strong><?= $medical_record_count?></strong></h3>
                 </div>
                 <div class="card-footer">
@@ -73,12 +73,12 @@
                   <div class="card-icon">
                     <i class="material-icons">local_hospital</i>
                   </div>
-                  <p class="card-category">Pasien Terlayani dalam 1 Minggu</p>
-                  <h3 class="card-title"><strong><?= $medical_record_count_7_days ?></strong></h3>
+                  <p class="card-category">Pasien Terlayani Bulan ini</p>
+                  <h3 class="card-title"><strong><?= $medical_record_count_one_month ?></strong></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">date_range</i> 7 hari terakhir
+                    <i class="material-icons">date_range</i> Bulan <?= $this->Converter->to_indonesia_short_month((int)date('m')) . " " . date('Y') ?>
                   </div>
                 </div>
               </div>

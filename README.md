@@ -1,6 +1,6 @@
-# eKlinik
+# Promedik
 
 # Env Setting
 - Copy *.env.example
-- Replace it to *.env.development*
-- If you add more field in *.env.development*, please add to *env.example* too
+- Replace it to *.env*
+- If you add more field in *.env*, please add to *env.example* too

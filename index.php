@@ -53,12 +53,12 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	if ($_SERVER['SERVER_NAME']=='nextgenacademy.id')
-	   define('ENVIRONMENT', 'production');
-	else if ($_SERVER['SERVER_NAME']=='staging.nextgenacademy.id')
+	if ($_SERVER['SERVER_NAME']=='localhost')
+	   define('ENVIRONMENT', 'development');
+	else if (strpos($_SERVER['SERVER_NAME'], 'demo') !== false)
 	   define('ENVIRONMENT', 'testing');
 	else
-	   define('ENVIRONMENT', 'development');
+	   define('ENVIRONMENT', 'production');
 
 /*
  *---------------------------------------------------------------

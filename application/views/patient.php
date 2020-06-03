@@ -51,7 +51,7 @@
                     </div>
                     <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                     <div class="col-md-6 col-6">
-                      <button class="btn btn-add btn-sm pull-right" data-toggle="tooltip" title="Tambah Pasien Baru" onClick="document.location.href='pasien/tambah'">
+                      <button class="btn btn-add btn-sm pull-right" data-toggle="tooltip" title="Tambah Pasien Baru" onClick="document.location.href='<?= base_url()?>pasien/tambah'">
                         <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">add</span> Tambah
                       </button>
                     </div>
@@ -76,7 +76,7 @@
                         <th>
                           Alamat
                         </th>
-                        <th width="180px">
+                        <th width="140px">
                           Opsi
                         </th>
                       </thead>

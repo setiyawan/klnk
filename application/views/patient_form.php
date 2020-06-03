@@ -37,7 +37,7 @@
                     <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                     <?php if ($action == "update") {?>
                     <div class="col-md-6 col-6">
-                      <button class="btn btn-success btn-sm pull-right" data-toggle="tooltip" title="Lihat Rekam Medis Pasien" onClick="document.location.href='<?=base_url()?>rekammedis?q=search&nomor_rekam_medis=<?= $medical_record_number ?>'">
+                      <button class="btn btn-success pull-right" data-toggle="tooltip" title="Lihat Rekam Medis Pasien" onClick="document.location.href='<?=base_url()?>rekammedis?q=search&nomor_rekam_medis=<?= $medical_record_number ?>'">
                         <span _ngcontent-usr-c19="" class="material-icons icon-image-preview">assignment</span>
                       </button>
                     </div>
@@ -66,7 +66,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="">No KTP/Identitas</label>
-                          <input name="id_card_number" class="form-control" value="<?= isset($patient[0]) ? $patient[0]['id_card_number'] : '' ?>">
+                          <input name="id_card_number" required class="form-control" value="<?= isset($patient[0]) ? $patient[0]['id_card_number'] : '' ?>">
                         </div>
                       </div>
                       <div class="col-md-6">
