@@ -31,7 +31,7 @@
       }
 
 
-      $visit_date_time = isset($medical_record[0]) ? $medical_record[0]['visit_date_time'] : date("Y-m-d h:i:s");
+      $visit_date_time = isset($medical_record[0]) ? $medical_record[0]['visit_date_time'] : date("Y-m-d H:i:s");
 
     ?>
 
