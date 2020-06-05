@@ -54,7 +54,7 @@ class MedicineModel extends CI_Model {
             $where_clause = ' where ' . implode(" and ", $where_array);
         }
 
-        $sql = 'select m.*, s.medicine_stock_id, s.current_stock from medicine m join ( select max(medicine_stock_id) as medicine_stock_id, medicine_id from medicine_stock GROUP BY medicine_id) as bridge on bridge.medicine_id = m.medicine_id JOIN medicine_stock s on bridge.medicine_stock_id = s.medicine_stock_id' . $where_clause;
+        $sql = 'select m.*, s.medicine_stock_id, s.current_stock from medicine m join ( select max(medicine_stock_id) as medicine_stock_id, medicine_id from medicine_stock GROUP BY medicine_id) as bridge on bridge.medicine_id = m.medicine_id JOIN medicine_stock s on bridge.medicine_stock_id = s.medicine_stock_id' . $where_clause . ' order by medicine_name asc';
         
         $this->db->order_by('medicine_name');
         return $this->db->query($sql)->result_array();

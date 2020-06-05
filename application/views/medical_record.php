@@ -119,7 +119,7 @@
                             <?= $key['therapy'] ?>
                           </td>
                           <td class="text-primary">
-                            <button type="button" data-toggle="tooltip" title="Edit Rekam Medis Pasien" class="btn btn-warning" onClick="document.location.href='rekammedis/detail?id=<?= $key['medical_record_id'] ?>'">
+                            <button type="button" data-toggle="tooltip" title="Edit Rekam Medis Pasien" class="btn btn-warning" onClick="document.location.href='<?= base_url() ?>rekammedis/detail?id=<?= $key['medical_record_id'] ?>'">
                               <span _ngcontent-jkp-c19="" class="material-icons icon-image-preview">edit</span>
                             </button>
                           </td>

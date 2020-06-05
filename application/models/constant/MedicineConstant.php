@@ -2,20 +2,34 @@
 
 class MedicineConstant extends CI_Model {
 	function get_unit() {
-		return array(
+		$unit =  array(
 			'1' => 'Tablet', 
 			'2' => 'Kapsul', 
 			'3' => 'Strip', 
-			'4' => 'Botol'
+			'4' => 'Botol',
+			'5' => 'Ampul',
+			'6' => 'Tube',
+			'7' => 'Sachet'
 		);
+		asort($unit);
+		
+		return $unit;
 	}
 
 	function get_expired_medicine() {
-		return array('' => 'Semua', '1' => 'Masih Berlaku', '2' => 'Kadaluarsa');
+		return array(
+			'' => 'Semua', 
+			'1' => 'Masih Berlaku', 
+			'2' => 'Kadaluarsa')
+		;
 	}
 
 	function get_status_medicine() {
-		return array('1' => 'Tersedia', '2' => 'Tidak Tersedia', '3' => 'Dihapus');
+		return array(
+			'1' => 'Tersedia', 
+			'2' => 'Tidak Tersedia', 
+			'3' => 'Dihapus'
+		);
 	}
 }
 
