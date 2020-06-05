@@ -10,10 +10,8 @@ class UserModel extends CI_Model {
         return $this->db->get('user')->result_array();
     }
 
-    public function update_password($user_id, $new_password, $salt) {
-        $pwd = md5($new_password) ;
-        $this->db->set('password', $pwd);
-        $this->db->set('salt', $salt);
+    public function update_password($user_id, $data) {
+        $this->db->set($data);
         $this->db->where('user_id', $user_id);
 
         return $this->db->update('user');
