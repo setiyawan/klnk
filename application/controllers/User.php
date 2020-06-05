@@ -92,7 +92,9 @@ class User extends My_Controller {
 		}
 
 		if($new_password == $confirm_password) {
-			$this->UserModel->update_password($user_id, $confirm_password, 'salt');	
+			$data['password'] = md5($confirm_password);
+			$data['update_time'] = $this->TimeConstant->get_current_timestamp();
+			$this->UserModel->update_password($user_id, $data);	
 		} else {
 			$this->set_alert('warning', 'Password Baru yang kamu masukkan tidak sama. Periksa kembali ya.');
 			redirect(base_url().'user/ganti_password');
