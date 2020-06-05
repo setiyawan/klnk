@@ -37,7 +37,7 @@ class Converter extends CI_Model {
 	}
 
 	function to_indonesia_timestamp($time_stamp) {
-		$date = date('d m Y h:i:s', strtotime($time_stamp));
+		$date = date('d m Y H:i:s', strtotime($time_stamp));
 		$split = explode(' ', $date);
 		return $split[0] . ' ' . $this->to_indonesia_short_month((int)$split[1]) . ' ' . $split[2] . ' ' . $split[3];
 	}
